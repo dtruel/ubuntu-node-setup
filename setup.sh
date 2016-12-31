@@ -16,6 +16,8 @@ export NVM_DIR="$HOME/.nvm"
 
 #install node lts
 nvm install --lts
+#set as default
+nvm alias default node
 
 #install mongodb
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
