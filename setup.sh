@@ -1,6 +1,9 @@
 #run as root
 #for ubuntu 16.04
 
+#set timezone to UTC
+sudo  timedatectl set-timezone Etc/UTC
+
 apt-get update
 
 #install curl
