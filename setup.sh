@@ -42,6 +42,6 @@ ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
 [Install]
 WantedBy=multi-user.target
 EOF
-systemctl enable mongodb
+systemctl enable mongod
 
 echo "done... probably want to run reboot"
