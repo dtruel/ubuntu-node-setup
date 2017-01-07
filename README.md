@@ -9,7 +9,7 @@ It also sets timezone to UTC.
 
 It tris to install postfix but fails.
 
-the server should already have curl installed if not, install it, then run this command
+
 ```bash
 wget https://raw.githubusercontent.com/dtruel/ubuntu-node-setup/master/setup.sh
 chmod +x setup.sh
