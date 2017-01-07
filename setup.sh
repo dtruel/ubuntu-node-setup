@@ -53,6 +53,7 @@ ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
 WantedBy=multi-user.target
 EOF
 systemctl enable mongod
+systemctl start mongod
 
 
 debconf-set-selections <<< "postfix postfix/mailname string main.$domain.com"
