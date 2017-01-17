@@ -17,16 +17,14 @@ apt-get install -y curl
 #install git
 apt-get install -y git
 
-#install node version manager
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-source ~/.bashrc
+#install node
+#curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+#sudo apt-get install -y nodejs
 
-#install node lts
-nvm install --lts
-#set as default
-nvm alias default node
+#install n to manage node
+curl -L https://git.io/n-install | bash
+n lts
+
 
 #install yarn package manager
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -54,6 +52,20 @@ WantedBy=multi-user.target
 EOF
 systemctl enable mongod
 systemctl start mongod
+
+
+#install paassenger + nginx
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
+sudo apt-get install -y apt-transport-https ca-certificates
+
+# Add our APT repository
+sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger xenial main > /etc/apt/sources.list.d/passenger.list'
+sudo apt-get update
+
+# Install Passenger + Nginx
+sudo apt-get install -y nginx-extras passenger
+sudo service nginx restart
+
 
 
 debconf-set-selections <<< "postfix postfix/mailname string main.$domain.com"
